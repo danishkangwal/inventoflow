@@ -23,7 +23,7 @@ class Users extends Admin_Controller
 		}
 
 		$user_data = $this->model_users->getUserData();
-
+ 
 		$result = array();
 		foreach ($user_data as $k => $v) {
 
@@ -215,7 +215,7 @@ class Users extends Admin_Controller
 	}
 
 	public function profile()
-	{
+	{ 
 		if(!in_array('viewProfile', $this->permission)) {
 			redirect('dashboard', 'refresh');
 		}
@@ -231,7 +231,7 @@ class Users extends Admin_Controller
         $this->render_template('users/profile', $this->data);
 	}
 
-	public function setting()
+	public function settings()
 	{	
 		if(!in_array('updateSetting', $this->permission)) {
 			redirect('dashboard', 'refresh');
@@ -260,11 +260,11 @@ class Users extends Admin_Controller
 		        	$update = $this->model_users->edit($data, $id);
 		        	if($update == true) {
 		        		$this->session->set_flashdata('success', 'Successfully updated');
-		        		redirect('users/setting/', 'refresh');
+		        		redirect('users/settings/', 'refresh');
 		        	}
 		        	else {
 		        		$this->session->set_flashdata('errors', 'Error occurred!!');
-		        		redirect('users/setting/', 'refresh');
+		        		redirect('users/settings/', 'refresh');
 		        	}
 		        }
 		        else {
@@ -288,11 +288,11 @@ class Users extends Admin_Controller
 			        	$update = $this->model_users->edit($data, $id, $this->input->post('groups'));
 			        	if($update == true) {
 			        		$this->session->set_flashdata('success', 'Successfully updated');
-			        		redirect('users/setting/', 'refresh');
+			        		redirect('users/settings/', 'refresh');
 			        	}
 			        	else {
 			        		$this->session->set_flashdata('errors', 'Error occurred!!');
-			        		redirect('users/setting/', 'refresh');
+			        		redirect('users/settings/', 'refresh');
 			        	}
 					}
 			        else {
@@ -306,7 +306,7 @@ class Users extends Admin_Controller
 			            $group_data = $this->model_groups->getGroupData();
 			        	$this->data['group_data'] = $group_data;
 
-						$this->render_template('users/setting', $this->data);	
+						$this->render_template('users/settings', $this->data);	
 			        }	
 
 		        }
@@ -322,7 +322,7 @@ class Users extends Admin_Controller
 	            $group_data = $this->model_groups->getGroupData();
 	        	$this->data['group_data'] = $group_data;
 
-				$this->render_template('users/setting', $this->data);	
+				$this->render_template('users/settings', $this->data);	
 	        }	
 		}
 	}

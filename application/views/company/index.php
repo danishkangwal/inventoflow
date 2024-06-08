@@ -46,12 +46,8 @@
                   <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Enter company name" value="<?php echo $company_data['company_name'] ?>" autocomplete="off">
                 </div>
                 <div class="form-group">
-                  <label for="service_charge_value">Charge Amount (%)</label>
+                  <label for="service_charge_value">GST Amount (%)</label>
                   <input type="text" class="form-control" id="service_charge_value" name="service_charge_value" placeholder="Enter charge amount %" value="<?php echo $company_data['service_charge_value'] ?>" autocomplete="off">
-                </div>
-                <div class="form-group">
-                  <label for="vat_charge_value">Vat Charge (%)</label>
-                  <input type="text" class="form-control" id="vat_charge_value" name="vat_charge_value" placeholder="Enter vat charge %" value="<?php echo $company_data['vat_charge_value'] ?>" autocomplete="off">
                 </div>
                 <div class="form-group">
                   <label for="address">Address</label>
@@ -77,7 +73,7 @@
                   <select class="form-control" id="currency" name="currency">
                     <option value="">~~SELECT~~</option>
 
-                    <?php foreach ($currency_symbols as $k => $v): ?>
+                    <?php foreach (["INR","USD"] as $k): ?>
                       <option value="<?php echo trim($k); ?>" <?php if($company_data['currency'] == $k) {
                         echo "selected";
                       } ?>><?php echo $k ?></option>

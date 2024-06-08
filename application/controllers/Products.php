@@ -68,7 +68,6 @@ class Products extends Admin_Controller
 
 
 			$result['data'][$key] = array(
-				$img,
 				$value['sku'],
 				$value['name'],
 				$value['price'],
@@ -100,17 +99,15 @@ class Products extends Admin_Controller
         $this->form_validation->set_rules('store', 'Store', 'trim|required');
 		$this->form_validation->set_rules('availability', 'Availability', 'trim|required');
 		
-	
         if ($this->form_validation->run() == TRUE) {
             // true case
-        	$upload_image = $this->upload_image();
+        	// $upload_image = $this->upload_image();
 
         	$data = array(
         		'name' => $this->input->post('product_name'),
         		'sku' => $this->input->post('sku'),
         		'price' => $this->input->post('price'),
-        		'qty' => $this->input->post('qty'),
-        		'image' => $upload_image,
+        		'qty' => $this->input->post('qty'), 
         		'description' => $this->input->post('description'),
         		'attribute_value_id' => json_encode($this->input->post('attributes_value_id')),
         		'brand_id' => json_encode($this->input->post('brands')),
@@ -118,7 +115,7 @@ class Products extends Admin_Controller
                 'store_id' => $this->input->post('store'),
         		'availability' => $this->input->post('availability'),
         	);
-
+            
         	$create = $this->model_products->create($data);
         	if($create == true) {
         		$this->session->set_flashdata('success', 'Successfully created');
@@ -200,6 +197,7 @@ class Products extends Admin_Controller
             redirect('dashboard', 'refresh');
         }
 
+
         $this->form_validation->set_rules('product_name', 'Product name', 'trim|required');
         $this->form_validation->set_rules('sku', 'SKU', 'trim|required');
         $this->form_validation->set_rules('price', 'Price', 'trim|required');
@@ -224,12 +222,6 @@ class Products extends Admin_Controller
             );
 
             
-            if($_FILES['product_image']['size'] > 0) {
-                $upload_image = $this->upload_image();
-                $upload_image = array('image' => $upload_image);
-                
-                $this->model_products->update($upload_image, $product_id);
-            }
 
             $update = $this->model_products->update($data, $product_id);
             if($update == true) {

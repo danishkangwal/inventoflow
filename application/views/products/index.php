@@ -47,8 +47,7 @@
           <div class="box-body">
             <table id="manageTable" class="table table-bordered table-striped">
               <thead>
-              <tr>
-                <th>Image</th>
+              <tr> 
                 <th>SKU</th>
                 <th>Product Name</th>
                 <th>Price</th>

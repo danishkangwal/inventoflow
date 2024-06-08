@@ -321,8 +321,7 @@ class Orders extends Admin_Controller
 
 			          	$product_data = $this->model_products->getProductData($v['product_id']); 
 			          	
-			          	$html .= '<tr>
-				            <td>'.$product_data['name'].'</td>
+			          	$html .= '<tr> 
 				            <td>'.$v['rate'].'</td>
 				            <td>'.$v['qty'].'</td>
 				            <td>'.$v['amount'].'</td>

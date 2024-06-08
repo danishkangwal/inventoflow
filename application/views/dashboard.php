@@ -17,9 +17,10 @@
     <!-- Main content -->
     <section class="content">
       <!-- Small boxes (Stat box) -->
-      <?php if($is_admin == true): ?>
 
         <div class="row">
+        
+          <?php if(in_array('viewProduct', $this->permission)): ?>
           <div class="col-lg-3 col-xs-6">
             <!-- small box -->
             <div class="small-box bg-aqua">
@@ -34,7 +35,9 @@
               <a href="<?php echo base_url('products/') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          <!-- ./col -->
+          <?php endif; ?>
+
+          <?php if(in_array('viewOrder', $this->permission)): ?>
           <div class="col-lg-3 col-xs-6">
             <!-- small box -->
             <div class="small-box bg-green">
@@ -49,7 +52,9 @@
               <a href="<?php echo base_url('orders/') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          <!-- ./col -->
+          <?php endif; ?>
+          
+          <?php if(in_array('viewUser', $this->permission)): ?>
           <div class="col-lg-3 col-xs-6">
             <!-- small box -->
             <div class="small-box bg-yellow">
@@ -64,7 +69,9 @@
               <a href="<?php echo base_url('users/') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          <!-- ./col -->
+          <?php endif; ?>
+
+          <?php if(in_array('viewStore', $this->permission)): ?>
           <div class="col-lg-3 col-xs-6">
             <!-- small box -->
             <div class="small-box bg-red">
@@ -79,10 +86,10 @@
               <a href="<?php echo base_url('stores/') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          <!-- ./col -->
+          <?php endif; ?>
+
         </div>
-        <!-- /.row -->
-      <?php endif; ?>
+
       
 
     </section>

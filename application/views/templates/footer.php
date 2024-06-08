@@ -1,9 +1,9 @@
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 0.1.0
+      <b>Version</b> 1.0
     </div>
-    <strong>Copyright &copy; <?php echo $company_data['company_name'] ?? '' ?> 2018-<?php echo date('Y') ?>.</strong> All rights reserved.
+    <strong>Copyright &copy; <?php echo date('Y') ?></strong> 
   </footer>
 
   <!-- Add the sidebar's background. This div must be placed

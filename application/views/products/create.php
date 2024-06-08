@@ -46,16 +46,6 @@
                 <?php echo validation_errors(); ?>
 
                 <div class="form-group">
-
-                  <label for="product_image">Image</label>
-                  <div class="kv-avatar">
-                      <div class="file-loading">
-                          <input id="product_image" name="product_image" type="file">
-                      </div>
-                  </div>
-                </div>
-
-                <div class="form-group">
                   <label for="product_name">Product name</label>
                   <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Enter product name" autocomplete="off"/>
                 </div>
@@ -155,7 +145,17 @@
 <script type="text/javascript">
   $(document).ready(function() {
     $(".select_group").select2();
-    $("#description").wysihtml5();
+    $("#description").wysihtml5({
+    toolbar: {
+        "font-styles": true, // Font styling, e.g. bold, italic, etc.
+        "emphasis": true, // Italics, bold, etc.
+        "lists": false, // Ordered or unordered lists
+        "html": false, // Show HTML view
+        "link": false, // Link dialog
+        "image": false, // Image dialog
+        "blockquote": false 
+    }
+    }); 
 
     $("#mainProductNav").addClass('active');
     $("#addProductNav").addClass('active');
